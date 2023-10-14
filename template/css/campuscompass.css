@@ -60,6 +60,7 @@ body {
     background-color: #202020;
 }
 
+/* .bg-charcoal-black - Charcoal Black background color (#242424) */
 .bg-charcoal-black {
     background-color: #242424;
 }
@@ -160,6 +161,13 @@ body {
 
 .button:hover{
     background-color: #3f4b6e;
+}
+
+.wide-btn{
+    width:90%;
+    padding:20px;
+    margin:20px;
+    border-radius:20px
 }
 
 /* Form Styles */
