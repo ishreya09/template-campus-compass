@@ -123,45 +123,71 @@ Comments: Add comments to explain complex sections, especially if your HTML stru
         <div class="container">
 
             <h1 class="text-center text-white">Registration Form</h1>
+            <br>
+            <br>
 
             <form class="text-center bg-charcoal-black " method="post" action="#">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" />
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" />
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required pattern="^[A-Za-z]+$" title="Only letters are allowed"/>
+                            <div class="popup1" id="first-name-popup">Only letters are allowed</div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" />
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required pattern="^[A-Za-z]+$" title="Only letters are allowed" />
+                            <div class="popup1" id="last-name-popup">Only letters are allowed</div>
                         </div>
-        
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password1" name="password1" placeholder="Password" />
+                            <input type="text" class="form-control" id="semester" name="semester" placeholder="Semester Number" required />
                         </div>
-
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" />
+                            <input type="text" class="form-control" id="SRN" name="SRN" placeholder="SRN(Student id)" required />
                         </div>
-
-                    </div>
-                    <div class="col">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="SRN" name="SRN" placeholder="SRN(Student id)" />
+                            <input type="date" class="form-control" id="dob" name="dob" required>
                         </div>
                         <div class="row">
                             <div class="form-group col col-md-3">
-                                <input type="text" class="form-control" id="countrycode" name="countrycode" placeholder="Country Code" />
+                                <input type="text" class="form-control" id="countrycode" name="countrycode" placeholder="Country Code" value="+91" required />
                             </div>
-                            <div class="form-group col col-md-9">
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+                            <div class="col">
+                                <div class="form">
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required pattern="^\[1-9][0-9]{9}$" title="Please enter a valid Indian mobile number with +91 country code"/>
+                                </div>
                             </div>
+                            <div id="popup" class="pop-up">
+                                <p id="popup-text"></p>
+                            </div>                            
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your email" required>
+                        </div>
+                        <div class="form group">
+                            <input type="text" class="form-control form-control-sm" id="address" name="address" placeholder="Address" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="roles" name="roles">
+                                <option disabled selected value="">Roles▼</option>
+                                <option value="student">Student</option>
+                                <option value="mentor">Mentor</option>
+                            </select>
                         </div>
                         
+                        <div class="form-group" id="password1">
+                            <input type="password" class="form-control" id="password1" name="password1" placeholder="Password" required />
+                        </div>
+
+                        <div class="form-group" id=password2>
+                            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" required/>
+                        </div>
+                        <div id="password-match-error" class="error" style="color: red;"></div>
+
                     </div>
                     <div class="col">
-                        <button type="submit" style="width:90%;padding:20px;margin:20px;border-radius:20px" class="btn btn-success">
+                        <button type="submit" style="width:90%;padding:20px;margin:20px;border-radius:20px" class="btn btn-success" onclick=return true;>
                             Sign Up
                         </button>
 
@@ -173,6 +199,66 @@ Comments: Add comments to explain complex sections, especially if your HTML stru
 
     </section>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('registration-form');
+            const phoneInput = document.getElementById("phone");
+            const popup = document.getElementById("popup");
+            const popupText = document.getElementById("popup-text");
+            const formFields = document.querySelectorAll('.form-group');
+    
+            // Function to display the pop-up message
+            function displayPopupMessage(message) {
+                popupText.textContent = message;
+                popup.style.display = "block";
+            }
+    
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+    
+    
+                phoneInput.addEventListener("invalid", function (e) {
+                    e.preventDefault(); // Prevent the default browser validation message
+                    displayPopupMessage("Please enter a valid Indian mobile number with +91 country code");
+                });
+    
+                formFields.forEach(field => {
+                    const input = field.querySelector('input');
+                    const popup = field.querySelector('.popup1');
+    
+                    input.addEventListener('invalid', () => {
+                        popup.style.display = 'block';
+                    });
+    
+                    input.addEventListener('input', () => {
+                        popup.style.display = 'none';
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('registration-form');
+    
+            form.addEventListener('submit', function (event) {
+                const password1 = document.getElementById('password1');
+                const password2 = document.getElementById('password2');
+                const passwordMatchError = document.getElementById('password-match-error');
+    
+                if (password1.value !== password2.value) {
+                    passwordMatchError.style.display = 'block';
+                    event.preventDefault();
+                } else {
+                    passwordMatchError.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    
+    
+    
 
 
 

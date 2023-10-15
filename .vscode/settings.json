@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.v": "systemverilog",
+        "*.vcd": "plaintext",
+        "Makefile": "makefile",
+        "plyconfig.json": "jsonc"
+    }
+}
