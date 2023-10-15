@@ -128,42 +128,34 @@ Comments: Add comments to explain complex sections, especially if your HTML stru
 
             <form class="text-center bg-charcoal-black " method="post" action="#">
                 <div class="row">
+
+                    <!-- Personal Details -->
                     <div class="col">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username"
-                                required />
-                        </div>
+
                         <div class="form-group">
                             <input type="text" class="form-control" id="first_name" name="first_name"
                                 placeholder="First Name" required pattern="^[A-Za-z]+$"
                                 title="Only letters are allowed" />
                             <!-- <div class="popup1" id="first-name-popup">Only letters are allowed</div> -->
                         </div>
+
                         <div class="form-group">
                             <input type="text" class="form-control" id="last_name" name="last_name"
                                 placeholder="Last Name" required pattern="^[A-Za-z]+$"
                                 title="Only letters are allowed" />
                             <!-- <div class="popup1" id="last-name-popup">Only letters are allowed</div> -->
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="semester" name="semester"
-                                placeholder="Semester Number" required />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="SRN" name="SRN" placeholder="SRN(Student id)"
-                                required />
-                        </div>
-                        <div class="form-group">
-                            <input type="date" class="form-control" id="dob" name="dob" required>
-                        </div>
+
                         <div class="row">
+
                             <div class="form-group col col-md-3">
                                 <input type="text" class="form-control" id="countrycode" name="countrycode"
                                     placeholder="Country Code" required />
                             </div>
+
                             <div class="col">
                                 <div class="form">
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number"
                                         required pattern="^\[1-9][0-9]{9}$"
                                         title="Please enter a valid Indian mobile number with +91 country code" />
                                 </div>
@@ -172,20 +164,14 @@ Comments: Add comments to explain complex sections, especially if your HTML stru
                                 <p id="popup-text"></p>
                             </div>                             -->
                         </div>
+
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Your email"
-                                required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email id" required />
                         </div>
-                        <div class="form group">
-                            <input type="text" class="form-control form-control-sm" id="address" name="address"
-                                placeholder="Address" required>
-                        </div>
+                        
                         <div class="form-group">
-                            <select class="form-control" id="roles" name="roles">
-                                <option class="form-control" disabled selected value="">Roles ▼</option>
-                                <option class="form-control" value="student">Student</option>
-                                <option class="form-control" value="mentor">Mentor</option>
-                            </select>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                                required />
                         </div>
 
                         <div class="form-group">
@@ -197,10 +183,43 @@ Comments: Add comments to explain complex sections, especially if your HTML stru
                             <input type="password" class="form-control" id="password2" name="password2"
                                 placeholder="Confirm Password" required />
                         </div>
-                        <div id="password-match-error" class="error" style="color: red;"></div>
+                        <!-- <div id="password-match-error" class="error" style="color: red;"></div> -->
 
                     </div>
+
+                    <!-- College Details -->
                     <div class="col">
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="collegeemail" name="collegeemail" placeholder="College Email id" required />
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="SRN" name="SRN" placeholder="SRN(Student id)"
+                                required />
+                        </div>  
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="yearofpassingout" name="yearofpassingout"
+                                placeholder="Year Of Passing Out" required />
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" id="branch" name="branch">
+                                <option class="form-control" disabled selected value="">Branch ▼</option>
+                                <option class="form-control" value="student">CSE</option>
+                                <option class="form-control" value="mentor">ECE</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" id="department" name="department">
+                                <option class="form-control" disabled selected value="">Department ▼</option>
+                                <option class="form-control" value="student">BTech</option>
+                                <option class="form-control" value="mentor">BCA</option>
+                            </select>
+                        </div>
+
                         <button type="submit" style="width:90%;padding:20px;margin:20px;border-radius:20px"
                             class="btn btn-success" onclick=return true;>
                             Sign Up
@@ -214,6 +233,31 @@ Comments: Add comments to explain complex sections, especially if your HTML stru
 
     </section>
 
+    
+    
+
+
+
+    
+    <!-- Fixed Footer -->
+    <nav class="navbar fixed-bottom navbar-light bg-dusky"> <!-- fixed-bottom -->
+        
+        <li class="nav-item">
+            <a class="navbar-brand text-muted" href="#">&copy; Copyright 2023</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="navbar-brand text-muted" href="home.html">Campus Compass : Navigating College Life Together</a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="navbar-brand text-muted" href="#">Privacy Policy</a>
+        </li>
+
+    </nav>
+
+    <!-- JavaScript  -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('registration-form');
@@ -272,38 +316,14 @@ Comments: Add comments to explain complex sections, especially if your HTML stru
         });
     </script>
 
-
-
-
-
-
-    <!-- Fixed Footer -->
-    <nav class="navbar fixed-bottom navbar-light bg-dusky"> <!-- fixed-bottom -->
-
-        <li class="nav-item">
-            <a class="navbar-brand text-muted" href="#">&copy; Copyright 2023</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="navbar-brand text-muted" href="home.html">Campus Compass : Navigating College Life Together</a>
-        </li>
-
-
-        <li class="nav-item">
-            <a class="navbar-brand text-muted" href="#">Privacy Policy</a>
-        </li>
-
-    </nav>
-
-
     <!-- Javascript files -->
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
-
-    <!-- popper.js -->
+        
+        <!-- popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -313,7 +333,7 @@ Comments: Add comments to explain complex sections, especially if your HTML stru
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-
+        
 </body>
 
 </html>
