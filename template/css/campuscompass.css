@@ -208,6 +208,33 @@ body {
 }
 /* Adjust specific form elements */
 
+.post-box {
+    border: 1px solid #ccc; /* Add a border */
+    background-color: #fff; /* Set background color to white */
+    padding: 40px; /* Add some padding for spacing */
+    position: fixed;
+    top: 7; /* Position at the top */
+    left: 7; /* Position at the left */
+    width: 550px; /* Set the width of the box */
+    height: 550px; /* Make the box square */
+}
+
+
+.post-box h2 {
+    margin-top: 0; /* Remove top margin for the title */
+    color: black; /* Set the title color to black */
+}
+
+.form-control {
+    margin-bottom: 10px; /* Add spacing between form elements */
+}
+
+.icon {
+    color: #333; /* Set icon color to gray */
+    margin-right: 10px; /* Add spacing to the right of icons */
+}
+
+
 
 
 /* Footer Styles */
